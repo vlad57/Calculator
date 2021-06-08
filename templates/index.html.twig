@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="margin: 30px auto; width: 30%;">
+        <div style="width: 400px;">
+            <div class="history-container" style="margin-bottom: 20px; overflow: scroll; height: 150px;">
+                {% if historyCalculation is defined and historyCalculation is not empty %}
+                    {% for index, his in historyCalculation %}
+                        <p>{{ his['calculation'] }}
+                            <span> = </span>
+                            <span>{{ his['result'] }}</span>
+                        </p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control input-values">
+            </div>
+
+            <div class="input-numbers">
+
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary operator input-reset" value="AC">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 6px;">
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="7">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="8">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="9">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary operator input-operator" value="/">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 6px;">
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="4">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="5">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="6">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary operator input-operator" value="*">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 6px;">
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="1">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="2">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="3">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary operator input-operator" value="-">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 6px;">
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value="0">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary number input-value" value=".">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" data-url-calculate="{{ path('calculate') }}" class="btn btn-primary input-equal" style="width: 100%;" value="=">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" class="btn btn-primary operator input-operator" value="+">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

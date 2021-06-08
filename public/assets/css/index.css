@@ -1,0 +1,23 @@
+.number {
+    width: 100%;
+    background-color: #f1f2f3;
+    border-color: #DDDDDD;
+    color: #000;
+}
+
+.number:hover {
+    background-color: #AAAAAA;
+    border-color: #AAAAAA;
+}
+
+.operator {
+    width: 100%;
+    background-color: #999999;
+    border-color: #999999;
+    color: #000;
+}
+
+.operator:hover {
+    background-color: #676565;
+    border-color: #676565;
+}
