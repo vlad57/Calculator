@@ -4,6 +4,8 @@
 namespace App\Service;
 
 
+use Exception;
+
 class CalculateService
 {
     function calculFinal($input) {
@@ -64,6 +66,12 @@ class CalculateService
         return $this->calculate($inputMultDiv, $tblOperator);
     }
 
+    /**
+     * @param $tblInput
+     * @param $tblOperator
+     * @return false|mixed
+     * @throws Exception
+     */
     function calculateMultiDiv(&$tblInput, &$tblOperator) {
         foreach($tblOperator as $keyOp => $op) {
 
@@ -74,7 +82,7 @@ class CalculateService
                 if ((isset($tblInput[$keyOp - 1]) && (is_numeric($tblInput[$keyOp - 1]) || is_float($tblInput[$keyOp - 1])))  && (isset($tblInput[$keyOp + 1]) && (is_numeric($tblInput[$keyOp + 1]) || is_float($tblInput[$keyOp + 1])) )) {
                     // Division par 0 interdite
                     if ((float)$tblInput[$keyOp + 1] === (float)0) {
-                        throw new \Exception('Divison by 0');
+                        throw new Exception('Divison by 0');
                         //return false;
                     }
                     // Calcul des deux éléments
