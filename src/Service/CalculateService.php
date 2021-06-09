@@ -74,7 +74,8 @@ class CalculateService
                 if ((isset($tblInput[$keyOp - 1]) && (is_numeric($tblInput[$keyOp - 1]) || is_float($tblInput[$keyOp - 1])))  && (isset($tblInput[$keyOp + 1]) && (is_numeric($tblInput[$keyOp + 1]) || is_float($tblInput[$keyOp + 1])) )) {
                     // Division par 0 interdite
                     if ((float)$tblInput[$keyOp + 1] === (float)0) {
-                        return false;
+                        throw new \Exception('Divison by 0');
+                        //return false;
                     }
                     // Calcul des deux éléments
                     (float)$operation = (float)$tblInput[$keyOp - 1] / (float)$tblInput[$keyOp + 1];
